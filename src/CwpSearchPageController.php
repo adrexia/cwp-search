@@ -3,6 +3,7 @@
 namespace CWP\Search;
 
 use PageController;
+use SilverStripe\Control\HTTPRequest;
 
 /**
  * Description of SearchPageController
@@ -33,7 +34,11 @@ class CwpSearchPageController extends PageController
         parent::__construct($dataRecord);
     }
 
-    public function index()
+    /**
+     * @param HTTPRequest $request
+     * @return \SilverStripe\Control\HTTPResponse
+     */
+    public function index(HTTPRequest $request)
     {
         return $this->redirect($this->Link('SearchForm'));
     }
